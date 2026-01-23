@@ -1,7 +1,7 @@
 
 
 ````
-src/main/java/com/tonapp/reservationapi
+src/main/java/com/getsu/chatop
 │
 ├── ReservationApiApplication.java
 │
