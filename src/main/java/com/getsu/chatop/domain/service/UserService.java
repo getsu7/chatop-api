@@ -52,6 +52,12 @@ public class UserService {
         return convertToResponse(user);
     }
 
+    public UserResponse getUserById(Integer id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Utilisateur introuvable"));
+        return convertToResponse(user);
+    }
+
     private UserResponse convertToResponse(User user) {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
