@@ -2,6 +2,7 @@ package com.getsu.chatop.domain.service;
 
 import com.getsu.chatop.application.auth.models.LoginRequest;
 import com.getsu.chatop.application.auth.models.RegisterRequest;
+import com.getsu.chatop.application.auth.models.UserResponse;
 import com.getsu.chatop.infrastructure.models.User;
 import com.getsu.chatop.infrastructure.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,6 +42,24 @@ public class UserService {
             return user;
         }
         throw new IllegalArgumentException("Mot de passe ou email incorrect");
+    }
+
+    public UserResponse getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new IllegalArgumentException("Utilisateur introuvable");
+        }
+        return convertToResponse(user);
+    }
+
+    private UserResponse convertToResponse(User user) {
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setName(user.getName());
+        response.setEmail(user.getEmail());
+        response.setCreated_at(user.getCreatedAt());
+        response.setUpdated_at(user.getUpdatedAt());
+        return response;
     }
 
 }

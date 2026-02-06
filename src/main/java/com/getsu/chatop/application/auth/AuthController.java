@@ -3,6 +3,7 @@ package com.getsu.chatop.application.auth;
 import com.getsu.chatop.application.auth.models.LoginRequest;
 import com.getsu.chatop.application.auth.models.RegisterRequest;
 import com.getsu.chatop.application.auth.models.TokenResponse;
+import com.getsu.chatop.application.auth.models.UserResponse;
 import com.getsu.chatop.domain.service.UserService;
 import com.getsu.chatop.domain.service.JWTService;
 import com.getsu.chatop.infrastructure.models.User;
@@ -51,4 +52,11 @@ class AuthController {
         String token = jwtService.generateToken(authentication);
         return ResponseEntity.ok(new TokenResponse(token));
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserResponse> getCurrentUser(Authentication authentication) {
+        UserResponse response = userService.getUserByEmail(authentication.getName());
+        return ResponseEntity.ok(response);
+    }
+
 }
