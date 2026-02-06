@@ -1,18 +1,23 @@
-package com.getsu.chatop.application.auth.models;
+package com.getsu.chatop.application.rental.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserResponse {
+public class RentalResponse {
     private Integer id;
     private String name;
-    private String email;
+    private BigDecimal surface;
+    private BigDecimal price;
+    private String picture;
+    private String description;
+    private Integer owner_id;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 }
