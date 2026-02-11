@@ -63,8 +63,8 @@ public class UserService {
         response.setId(user.getId());
         response.setName(user.getName());
         response.setEmail(user.getEmail());
-        response.setCreated_at(user.getCreatedAt());
-        response.setUpdated_at(user.getUpdatedAt());
+        response.setCreatedAt(user.getCreatedAt());
+        response.setUpdatedAt(user.getUpdatedAt());
         return response;
     }
 

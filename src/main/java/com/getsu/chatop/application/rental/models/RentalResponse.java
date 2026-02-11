@@ -1,5 +1,6 @@
 package com.getsu.chatop.application.rental.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,10 @@ public class RentalResponse {
     private BigDecimal price;
     private String picture;
     private String description;
-    private Integer owner_id;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
+    @JsonProperty("owner_id")
+    private Integer ownerId;
+    @JsonProperty("created_at")
+    private LocalDateTime createdAt;
+    @JsonProperty("updated_at")
+    private LocalDateTime updatedAt;
 }

@@ -102,9 +102,9 @@ public class RentalService {
         response.setPrice(rental.getPrice());
         response.setPicture(rental.getPicture());
         response.setDescription(rental.getDescription());
-        response.setOwner_id(rental.getOwner().getId());
-        response.setCreated_at(rental.getCreatedAt());
-        response.setUpdated_at(rental.getUpdatedAt());
+        response.setOwnerId(rental.getOwner().getId());
+        response.setCreatedAt(rental.getCreatedAt());
+        response.setUpdatedAt(rental.getUpdatedAt());
         return response;
     }
 

@@ -1,5 +1,6 @@
 package com.getsu.chatop.application.auth.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,8 @@ public class UserResponse {
     private Integer id;
     private String name;
     private String email;
-    private LocalDateTime created_at;
-    private LocalDateTime updated_at;
+    @JsonProperty("created_at")
+    private LocalDateTime createdAt;
+    @JsonProperty("updated_at")
+    private LocalDateTime updatedAt;
 }
