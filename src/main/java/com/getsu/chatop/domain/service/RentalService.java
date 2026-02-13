@@ -17,7 +17,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class RentalService {
@@ -34,7 +33,7 @@ public class RentalService {
         List<Rental> rentals = rentalRepository.findAll();
         List<RentalResponse> rentalResponses = rentals.stream()
                 .map(this::convertToResponse)
-                .collect(Collectors.toList());
+                .toList();
         return new RentalsResponse(rentalResponses);
     }
 
