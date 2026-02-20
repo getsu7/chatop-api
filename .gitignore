@@ -33,5 +33,6 @@ build/
 .vscode/
 
 ### Environment Variables ###
-src/.env
+.env
 
+uploads
